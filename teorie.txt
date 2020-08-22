@@ -1,0 +1,1 @@
+Daca este folosit routes, in componet trebuie de pus tagul <router-outlet></router-outlet>, altfel nu va arata nimic, la fel si pt children, in html parinte trebuie de pus tagul.
