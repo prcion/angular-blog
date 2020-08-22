@@ -1,1 +1,48 @@
-<p>login-page works!</p>
+<form class="card" [formGroup]="getForm()" (ngSubmit)="submit()">
+  <h2>Log in admin</h2>
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: isNotTouchedAndInvalid('email')}"
+  >
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email"/>
+    <div
+      *ngIf="isNotTouchedAndInvalid('email')"
+      class="validation"
+    >
+      <small *ngIf="hasErrorsRequired('email')">
+          Write email field.
+      </small>
+      <small *ngIf="invalidEmail()">
+          Invalid email.
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: isNotTouchedAndInvalid('password')}"
+  >
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password"/>
+    <div
+      *ngIf="isNotTouchedAndInvalid('password')"
+      class="validation"
+    >
+      <small *ngIf="hasErrorsRequired('password')">
+        Write password field.
+      </small>
+      <small *ngIf="invalidPassword()">
+        Invalid password.
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="getForm().invalid"
+  >Log in</button>
+
+</form>
